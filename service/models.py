@@ -25,4 +25,4 @@ class Dish(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     dish_type = models.ForeignKey(DishType, on_delete=models.CASCADE, related_name="dishes")
-    cooks = models.ForeignKey(Cook, related_name="dishes")
+    cooks = models.ForeignKey(Cook, related_name="dishes", on_delete=models.CASCADE)
