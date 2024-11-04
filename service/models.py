@@ -1,6 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-from django.db.models import ForeignKey
+from django.contrib.auth.models import AbstractUser, Group, Permission
 
 
 class DishType(models.Model):
@@ -11,13 +10,26 @@ class DishType(models.Model):
 
 
 class Cook(AbstractUser):
-    years_of_experience = models.IntegerField(null=True,
-                                              blank=True,
-                                              default=0)
+    years_of_experience = models.IntegerField(null=True, blank=True, default=0)
+
+
+    groups = models.ManyToManyField(
+        Group,
+        related_name="cook_user_set",
+        blank=True,
+        help_text="The groups this user belongs to.",
+        verbose_name="groups"
+    )
+    user_permissions = models.ManyToManyField(
+        Permission,
+        related_name="cook_user_permissions_set",
+        blank=True,
+        help_text="Specific permissions for this user.",
+        verbose_name="user permissions"
+    )
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} ({self.username}) "
-
+        return f"{self.first_name} {self.last_name} ({self.username})"
 
 
 class Dish(models.Model):
