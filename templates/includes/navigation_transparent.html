@@ -1,4 +1,4 @@
-{% load i18n static theme_material_kit %}
+{% load i18n static  %}
  <!-- Navbar Transparent -->
   <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
     <div class="container">
@@ -27,8 +27,7 @@
                   Landing Pages
                 </h6>
 
-
-                {% admin_get_menu as app_list %}
+              
                 {% if app_list %}
                     {% for app in app_list %}
                         {% if app.has_perms and not app.pinned %}
