@@ -24,4 +24,4 @@ def index(request):
         "ASSETS_ROOT" : settings.ASSETS_ROOT
     }
 
-    return render(request)
+    return render(request, "index.html", context=context)
