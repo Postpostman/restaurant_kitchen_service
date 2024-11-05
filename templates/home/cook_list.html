@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+{% block content %}
+<h1>Cook List</h1>
+<ul>
+    {% for cook in cooks %}
+    <li><a href="{% url 'cook_detail' cook.pk %}">{{ cook }}</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'cook_create' %}">Add new Cook</a>
+{% endblock %}

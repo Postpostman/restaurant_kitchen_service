@@ -1,0 +1,7 @@
+{% extends "index.html" %}
+{% block content %}
+<h1>Cook: {{ cook }}</h1>
+<p>Years of Experience: {{ cook.years_of_experience }}</p>
+<a href="{% url 'cook_update' cook.pk %}">Edit</a> |
+<a href="{% url 'cook_delete' cook.pk %}">Delete</a>
+{% endblock %}
