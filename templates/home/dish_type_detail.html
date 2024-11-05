@@ -1,0 +1,6 @@
+{% extends "index.html" %}
+{% block content %}
+<h1>Dish Type: {{ dish_type.name }}</h1>
+<a href="{% url 'dish_type_update' dish_type.pk %}">Edit</a> |
+<a href="{% url 'dish_type_delete' dish_type.pk %}">Delete</a>
+{% endblock %}

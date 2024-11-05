@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% block content %}
+<h1>{% if dish %}Edit Dish{% else %}Add New Dish{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+{% endblock %}
