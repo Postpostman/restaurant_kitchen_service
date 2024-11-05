@@ -6,7 +6,7 @@
 
 {% block header %}
 
-{% include 'includes/../../kitchen/navigation_light.html' %}
+{% include 'includes/navigation_light.html' %}
 
 {% endblock header %}
 
@@ -382,7 +382,7 @@
 
   {% block footer %}
   
-  {% include 'includes/../../kitchen/footer_fullscreen.html' %}
+  {% include 'includes/footer_fullscreen.html' %}
   
   {% endblock footer %}
 
@@ -390,7 +390,7 @@
   
     <!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
     <script src="{% static 'js/plugins/countup.min.js' %}"></script>
-    {% include 'includes/../../kitchen/scripts_sections.html' %}
+    {% include 'includes/scripts_sections.html' %}
 
     <script>
       if (document.getElementById('typed')) {

@@ -7,6 +7,4 @@ from service.views import(
 app_name = "restaurant_kitchen"
 
 urlpatterns = [
-    path("", index, name="index"),
-    path("admin/", admin.site.urls),]
-
+    path("", index, name="index"),]
