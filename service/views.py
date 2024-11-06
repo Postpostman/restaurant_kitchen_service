@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 
-# @login_required
+@login_required
 def index(request):
     """Home page view function."""
 
