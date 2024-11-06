@@ -5,6 +5,6 @@
 <p>Price: ${{ dish.price }}</p>
 <p>Dish Type: {{ dish.dish_type }}</p>
 <p>Cook: {{ dish.cooks }}</p>
-<a href="{% url 'dish_update' dish.pk %}">Edit</a> |
-<a href="{% url 'dish_delete' dish.pk %}">Delete</a>
+<a href="{% url 'restaurant_kitchen:dish_update' dish.pk %}">Edit</a> |
+<a href="{% url 'restaurant_kitchen:dish_delete' dish.pk %}">Delete</a>
 {% endblock %}

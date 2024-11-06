@@ -3,8 +3,8 @@
 <h1>Dish List</h1>
 <ul>
     {% for dish in dishes %}
-    <li><a href="{% url 'dish_detail' dish.pk %}">{{ dish.name }}</a></li>
+    <li><a href="{% url 'restaurant_kitchen:dish_detail' dish.pk %}">{{ dish.name }}</a></li>
     {% endfor %}
 </ul>
-<a href="{% url 'dish_create' %}">Add new Dish</a>
+<a href="{% url 'restaurant_kitchen:dish_create' %}">Add new Dish</a>
 {% endblock %}

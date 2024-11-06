@@ -3,8 +3,8 @@
 <h1>Cook List</h1>
 <ul>
     {% for cook in cooks %}
-    <li><a href="{% url 'cook_detail' cook.pk %}">{{ cook }}</a></li>
+    <li><a href="{% url 'restaurant_kitchen:cook_detail' cook.pk %}">{{ cook }}</a></li>
     {% endfor %}
 </ul>
-<a href="{% url 'cook_create' %}">Add new Cook</a>
+<a href="{% url 'restaurant_kitchen:cook_create' %}">Add new Cook</a>
 {% endblock %}
