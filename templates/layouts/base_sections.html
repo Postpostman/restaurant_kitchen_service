@@ -42,18 +42,9 @@
 
 <body {% block body %}{% endblock body %} >
 
-
   {% block content %}{% endblock content %}
 
-  {% block footer %}
-  
-    {% include 'includes/footer_background.html' %}
-
-  {% endblock footer %}
-
   {% include 'includes/scripts.html' %}
-
-  {% block javascripts %}{% endblock javascripts %}
 
 </body>
 </html>
