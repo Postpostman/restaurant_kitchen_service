@@ -7,85 +7,99 @@
 
 {% block content %}
 
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Sidebar -->
-      <div class="col-md-3">
-        {% include 'includes/sidebar.html' %}
-      </div>
+  <!-- Фон для всієї сторінки -->
+  <div class="full-background" style="
+       background-image: url('{% static 'img/curved-images/curved.jpg' %}');
+       background-position: 50%;
+       background-size: cover;
+       width: 100vw;
+       height: 100vh;
+       position: fixed;
+       top: 0;
+       left: 0;
+       z-index: -1;">
+  </div>
 
-      <!-- Main Content -->
-      <div class="col-md-9">
-        <header class="header-2">
-          <div class="page-header min-vh-75 relative"
-               style="background-image: url('{% static 'img/curved-images/curved.jpg' %}')">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-7 text-center mx-auto">
-                  <h1 class="text-white pt-3 mt-n5">Restaurant Kitchen Service</h1>
-                  <p class="lead text-white mt-3">Management system for your restaurant</p>
-                </div>
-              </div>
-            </div>
-            <div class="position-absolute w-100 z-index-1 bottom-0">
-              <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                   viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
-                <defs>
-                  <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
-                </defs>
-                <g class="moving-waves">
-                  <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40)"/>
-                  <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"/>
-                  <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)"/>
-                  <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"/>
-                  <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)"/>
-                  <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95)"/>
-                </g>
-              </svg>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar" style="
+       background-color: rgba(255, 255, 255, 0.8); /* Залишили напівпрозорий білий */
+       padding: 20px;
+       border-radius: 8px;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+       width: 200px; /* Зменшена ширина */
+       height: 100vh; /* Висота на всю сторінку */
+       position: fixed;
+       z-index: 1;">
+    {% include 'includes/sidebar.html' %}
+  </div>
+
+  <!-- Main Content -->
+  <div class="col" style="margin-left: 220px;">
+    <header class="header-2">
+      <div class="page-header min-vh-75 relative">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7 text-center mx-auto">
+              <h1 class="text-white pt-3 mt-n5">Restaurant Kitchen Service</h1>
+              <p class="lead text-white mt-3">Management system for your restaurant</p>
             </div>
           </div>
-        </header>
+        </div>
+        <div class="position-absolute w-100 z-index-1 bottom-0">
+          <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+               viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+              <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+            </defs>
+            <g class="moving-waves">
+              <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40)"/>
+              <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"/>
+              <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)"/>
+              <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"/>
+              <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)"/>
+              <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95)"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </header>
 
-        <section class="pt-3 pb-4" id="count-stats">
-          <div class="container">
+    <section class="pt-3 pb-4" id="count-stats">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 z-index-2 border-radius-xl mt-n10 mx-auto py-3 blur shadow-blur">
             <div class="row">
-              <div class="col-lg-9 z-index-2 border-radius-xl mt-n10 mx-auto py-3 blur shadow-blur">
-                <div class="row">
-                  <div class="col-md-4 position-relative">
-                    <div class="p-3 text-center">
-                      <h1 class="text-gradient text-primary"><span id="state1"
-                                                                   countTo={{ num_cooks }}>{{ num_dishes }}</span></h1>
-                      <h5 class="mt-3">Cooks</h5>
-                      <p class="text-sm">
-                        From assistants to chefs</p>
-                    </div>
-                    <hr class="vertical dark">
-                  </div>
-                  <div class="col-md-4 position-relative">
-                    <div class="p-3 text-center">
-                      <h1 class="text-gradient text-primary"><span id="state2"
-                                                                   countTo={{ num_dishes }}>{{ num_dishes }}</span>
-                      </h1>
-                      <h5 class="mt-3">Dishes</h5>
-                      <p class="text-sm">A delicious palette of flavors and aromas</p>
-                    </div>
-                    <hr class="vertical dark">
-                  </div>
-                  <div class="col-md-4">
-                    <div class="p-3 text-center">
-                      <h1 class="text-gradient text-primary" id="state3" countTo={{ num_dishes_types }}>0</h1>
-                      <h5 class="mt-3">Dish types</h5>
-                      <p class="text-sm">
-                        Food categories for all tastes</p>
-                    </div>
-                  </div>
+              <div class="col-md-4 position-relative">
+                <div class="p-3 text-center">
+                  <h1 class="text-gradient text-primary"><span id="state1"
+                                                               countTo={{ num_cooks }}>{{ num_dishes }}</span></h1>
+                  <h5 class="mt-3">Cooks</h5>
+                  <p class="text-sm">From assistants to chefs</p>
+                </div>
+                <hr class="vertical dark">
+              </div>
+              <div class="col-md-4 position-relative">
+                <div class="p-3 text-center">
+                  <h1 class="text-gradient text-primary"><span id="state2"
+                                                               countTo={{ num_dishes }}>{{ num_dishes }}</span>
+                  </h1>
+                  <h5 class="mt-3">Dishes</h5>
+                  <p class="text-sm">A delicious palette of flavors and aromas</p>
+                </div>
+                <hr class="vertical dark">
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 text-center">
+                  <h1 class="text-gradient text-primary" id="state3" countTo={{ num_dishes_types }}>0</h1>
+                  <h5 class="mt-3">Dish types</h5>
+                  <p class="text-sm">Food categories for all tastes</p>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
-    </div>
+    </section>
   </div>
 
 {% endblock content %}
