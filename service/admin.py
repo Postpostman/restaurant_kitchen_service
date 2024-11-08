@@ -9,6 +9,7 @@ class DishTypeAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 
+
 # Registering Cook model
 @admin.register(Cook)
 class CookAdmin(admin.ModelAdmin):
