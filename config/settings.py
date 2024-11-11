@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     "service",
     "config",
     "crispy_forms",
-    "crispy_bootstrap4"
+    "crispy_bootstrap4",
 ]
 
 MIDDLEWARE = [
