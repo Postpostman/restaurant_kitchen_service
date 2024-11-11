@@ -1,6 +1,19 @@
 {% extends "index.html" %}
+
+{% block title %}Dish Type: {{ dish_type.name }}{% endblock title %}
+
 {% block content %}
-<h1>Dish Type: {{ dish_type.name }}</h1>
-<a href="{% url 'restaurant_kitchen:dish_type_update' dish_type.pk %}">Edit</a> |
-<a href="{% url 'restaurant_kitchen:dish_type_delete' dish_type.pk %}">Delete</a>
-{% endblock %}
+<div class="container mt-5">
+    <h1 class="text-center">Dish Type: {{ dish_type.name }}</h1>
+    
+    <div class="text-center mt-4">
+        <a href="{% url 'restaurant_kitchen:dish_type_update' dish_type.pk %}" class="btn btn-warning me-2">Edit</a>
+        <a href="{% url 'restaurant_kitchen:dish_type_delete' dish_type.pk %}" class="btn btn-danger">Delete</a>
+    </div>
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+    {{ block.super }}
+{% endblock javascripts %}
+

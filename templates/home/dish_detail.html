@@ -1,10 +1,27 @@
 {% extends "index.html" %}
+
+{% block title %}Dish: {{ dish.name }}{% endblock title %}
+
 {% block content %}
-<h1>Dish: {{ dish.name }}</h1>
-<p>Description: {{ dish.description }}</p>
-<p>Price: ${{ dish.price }}</p>
-<p>Dish Type: {{ dish.dish_type }}</p>
-<p>Cook: {{ dish.cooks }}</p>
-<a href="{% url 'restaurant_kitchen:dish_update' dish.pk %}">Edit</a> |
-<a href="{% url 'restaurant_kitchen:dish_delete' dish.pk %}">Delete</a>
-{% endblock %}
+<div class="container mt-5">
+    <h1 class="text-center">{{ dish.name }}</h1>
+    
+    <div class="card mt-4">
+        <div class="card-body">
+            <p class="card-text"><strong>Description:</strong> {{ dish.description }}</p>
+            <p class="card-text"><strong>Price:</strong> ${{ dish.price }}</p>
+            <p class="card-text"><strong>Dish Type:</strong> {{ dish.dish_type }}</p>
+            <p class="card-text"><strong>Cook:</strong> {{ dish.cooks }}</p>
+        </div>
+    </div>
+    
+    <div class="text-center mt-4">
+        <a href="{% url 'restaurant_kitchen:dish_update' dish.pk %}" class="btn btn-warning me-2">Edit</a>
+        <a href="{% url 'restaurant_kitchen:dish_delete' dish.pk %}" class="btn btn-danger">Delete</a>
+    </div>
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+    {{ block.super }}
+{% endblock javascripts %}

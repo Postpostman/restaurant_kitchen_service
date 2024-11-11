@@ -1,10 +1,25 @@
-{% extends "index.html" %}
+{% extends "layouts/base_sections.html" %}
+
+{% block title %}Cook List{% endblock title %}
+
 {% block content %}
-<h1>Cook List</h1>
-<ul>
-    {% for cook in cooks %}
-    <li><a href="{% url 'restaurant_kitchen:cook_detail' cook.pk %}">{{ cook }}</a></li>
-    {% endfor %}
-</ul>
-<a href="{% url 'restaurant_kitchen:cook_create' %}">Add new Cook</a>
-{% endblock %}
+<div class="container mt-5">
+    <h1 class="text-center">Cook List</h1>
+    <ul class="list-group">
+        {% for cook in cooks %}
+            <li class="list-group-item">
+                <a href="{% url 'restaurant_kitchen:cook_detail' cook.pk %}" class="text-decoration-none">
+                    {{ cook }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="text-center mt-3">
+        <a href="{% url 'restaurant_kitchen:cook_create' %}" class="btn btn-primary">Add new Cook</a>
+    </div>
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+    {{ block.super }}
+{% endblock javascripts %}
