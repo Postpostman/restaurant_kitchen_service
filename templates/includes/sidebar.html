@@ -1,18 +1,24 @@
-<div class="pt-3 pb-4" id="count-stats">
-  <a href="{% url 'logout' %}" class="btn"
-     style="background-color: #FF69B4; color: white; border: none; padding: 10px 20px; text-align: center; display: inline-block; border-radius: 5px; text-decoration: none;">
-    Log out
-  </a>
-  <h4 class="text-primary">Navigation</h4>
+{% load i18n %}
+
+<div class="pt-3 pb-4" id="count-stats" style="position: fixed; top: 0; left: 0; height: 100%; width: 230px; background-color: rgba(255, 255, 255, 0.9); z-index: 100;">
   <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'restaurant_kitchen:cook_list' %}">Cooks</a>
+      <a class="nav-link text-dark fs-4 fw-bold" href="{% url 'restaurant_kitchen:cook_list' %}">Cooks</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'restaurant_kitchen:dish_list' %}">Dishes</a>
+      <a class="nav-link text-dark fs-4 fw-bold" href="{% url 'restaurant_kitchen:dish_list' %}">Dishes</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'restaurant_kitchen:dish_type_list' %}">Dish Types</a>
+      <a class="nav-link text-dark fs-4 fw-bold" href="{% url 'restaurant_kitchen:dish_type_list' %}">Dish Types</a>
     </li>
   </ul>
-</div> 
+  
+  <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">
+    <form id="logout-form" method="post" action="{% url 'logout' %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-dark">
+        {% trans "Log out" %}
+      </button>
+    </form>
+  </div>
+</div>
