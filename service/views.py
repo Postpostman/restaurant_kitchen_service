@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 
+
 @login_required
 def index(request):
     """Home page view function."""
@@ -35,6 +36,7 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
     model = DishType
     template_name = "home/dish_type_list.html"
     context_object_name = "dish_types"
+    paginate_by = 10
 
 
 class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
@@ -68,6 +70,7 @@ class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
     template_name = "home/cook_list.html"
     context_object_name = "cooks"
+    paginate_by = 7
 
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
@@ -101,6 +104,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     template_name = "home/dish_list.html"
     context_object_name = "dishes"
+    paginate_by = 7
 
 
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
@@ -127,5 +131,3 @@ class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Dish
     template_name = "home/dish_confirm_delete.html"
     success_url = reverse_lazy("restaurant_kitchen:dish_list")
-
-
