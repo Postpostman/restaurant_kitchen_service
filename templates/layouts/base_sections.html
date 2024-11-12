@@ -42,7 +42,10 @@
 
 <body {% block body %}{% endblock body %} >
 
-{% block content %}{% endblock content %}
+{% block content %}
+    {{ block.super }}
+    {% include "includes/pagination.html" %}
+{% endblock %}
 
 {% include 'includes/scripts.html' %}
 
