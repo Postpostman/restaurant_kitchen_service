@@ -8,15 +8,16 @@
     
 
     <div class="container mb-4">
-        <form method="get" action="{% url 'restaurant_kitchen:dish_type_list' %}" class="mb-3 d-flex">
+        <form method="get" action="{% url 'restaurant_kitchen:dish_type_list' %}" class="mb-3 align-items-center">
             <input
                 type="text"
                 name="q"
-                class="form-control me-2"
+                class="form-control w-20"
                 placeholder="Search Dish Types..."
                 value="{{ query|default:'' }}"
             >
-            <button type="submit" class="btn btn-primary search-btn">Search</button>
+          <div style="height: 15px;"></div>
+            <button type="submit" class="btn btn-dark search-btn">Search</button>
         </form>
     </div>
     
