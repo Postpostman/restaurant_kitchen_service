@@ -1,21 +1,19 @@
-{% extends "index.html" %}
+{% extends "layouts/base_sections.html" %}
 
 {% block title %}Dish Type List{% endblock title %}
 
 {% block content %}
 <div class="container mt-5">
     <h1 class="text-center">Dish Type List</h1>
-    <form method="get" action="{% url 'restaurant_kitchen:dish_type_list' %}" class="mb-3">
-        <div class="input-group">
-            <input
-                type="text"
-                name="q"
-                class="form-control"
-                placeholder="Search Dish Types..."
-                value="{{ query|default:'' }}"
-            >
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
+    <form method="get" action="{% url 'restaurant_kitchen:dish_type_list' %}" class="mb-3 d-flex">
+        <input
+            type="text"
+            name="q"
+            class="form-control me-2"
+            placeholder="Search Dish Types..."
+            value="{{ query|default:'' }}"
+        >
+        <button type="submit" class="btn btn-primary search-btn">Search</button>
     </form>
     <ul class="list-group">
         {% for dish_type in dish_types %}
@@ -35,3 +33,14 @@
 {% block javascripts %}
     {{ block.super }}
 {% endblock javascripts %}
+
+<style>
+    .search-btn {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    .form-control {
+        height: auto;
+    }
+</style>
