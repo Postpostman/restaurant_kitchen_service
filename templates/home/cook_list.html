@@ -3,30 +3,35 @@
 {% block title %}Cook List{% endblock title %}
 
 {% block content %}
-<div class="container mt-5 " >
+<div class="container mt-5">
     <h1 class="text-center">Cook List</h1>
-    <form method="get" action="{% url 'restaurant_kitchen:cook_list' %}" class="mb-3">
-        <div class="input-group">
+
+    <div class="container mb-4">
+        <form method="get" action="{% url 'restaurant_kitchen:cook_list' %}" class="mb-3 d-flex">
             <input
                 type="text"
                 name="q"
-                class="form-control"
+                class="form-control me-2"
                 placeholder="Search Cooks..."
                 value="{{ query|default:'' }}"
             >
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-    </form>
-    <ul class="list-group">
-        {% for cook in cooks %}
-            <li class="list-group-item">
-                <a href="{% url 'restaurant_kitchen:cook_detail' cook.pk %}" class="text-decoration-none">
-                    {{ cook }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-    <div class="text-center mt-3">
+            <button type="submit" class="btn btn-primary search-btn">Search</button>
+        </form>
+    </div>
+
+    <div class="container mb-4">
+        <ul class="list-group">
+            {% for cook in cooks %}
+                <li class="list-group-item">
+                    <a href="{% url 'restaurant_kitchen:cook_detail' cook.pk %}" class="text-decoration-none">
+                        {{ cook }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="container text-center mt-3">
         <a href="{% url 'restaurant_kitchen:cook_create' %}" class="btn btn-primary">Add new Cook</a>
     </div>
 </div>
@@ -35,3 +40,14 @@
 {% block javascripts %}
     {{ block.super }}
 {% endblock javascripts %}
+
+<style>
+    .search-btn {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    .form-control {
+        height: auto;
+    }
+</style>

@@ -5,26 +5,36 @@
 {% block content %}
 <div class="container mt-5">
     <h1 class="text-center">Dish Type List</h1>
-    <form method="get" action="{% url 'restaurant_kitchen:dish_type_list' %}" class="mb-3 d-flex">
-        <input
-            type="text"
-            name="q"
-            class="form-control me-2"
-            placeholder="Search Dish Types..."
-            value="{{ query|default:'' }}"
-        >
-        <button type="submit" class="btn btn-primary search-btn">Search</button>
-    </form>
-    <ul class="list-group">
-        {% for dish_type in dish_types %}
-            <li class="list-group-item">
-                <a href="{% url 'restaurant_kitchen:dish_type_detail' dish_type.pk %}" class="text-decoration-none">
-                    {{ dish_type.name }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-    <div class="text-center mt-3">
+    
+
+    <div class="container mb-4">
+        <form method="get" action="{% url 'restaurant_kitchen:dish_type_list' %}" class="mb-3 d-flex">
+            <input
+                type="text"
+                name="q"
+                class="form-control me-2"
+                placeholder="Search Dish Types..."
+                value="{{ query|default:'' }}"
+            >
+            <button type="submit" class="btn btn-primary search-btn">Search</button>
+        </form>
+    </div>
+    
+
+    <div class="container mb-4">
+        <ul class="list-group">
+            {% for dish_type in dish_types %}
+                <li class="list-group-item">
+                    <a href="{% url 'restaurant_kitchen:dish_type_detail' dish_type.pk %}" class="text-decoration-none">
+                        {{ dish_type.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+    <div class="container text-center mt-3">
         <a href="{% url 'restaurant_kitchen:dish_type_create' %}" class="btn btn-primary">Add new Dish Type</a>
     </div>
 </div>
