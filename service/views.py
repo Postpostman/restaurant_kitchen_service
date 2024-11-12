@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from .models import Cook, Dish, DishType
 from django.urls import reverse_lazy
 from django.views import generic
+from django.db.models import Q
 
 
 
@@ -37,6 +38,19 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
     template_name = "home/dish_type_list.html"
     context_object_name = "dish_types"
     paginate_by = 10
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        query = self.request.GET.get("q")
+        if query:
+            queryset = queryset.filter(name__icontains=query)
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["query"] = self.request.GET.get("q", "")
+        return context
+
 
 
 class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
@@ -70,7 +84,22 @@ class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
     template_name = "home/cook_list.html"
     context_object_name = "cooks"
-    paginate_by = 7
+    paginate_by = 10
+
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        query = self.request.GET.get("q")
+        if query:
+            queryset = queryset.filter(
+                Q(first_name__icontains=query) | Q(last_name__icontains=query)
+            )
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["query"] = self.request.GET.get("q", "")
+        return context
 
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
@@ -104,7 +133,22 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     template_name = "home/dish_list.html"
     context_object_name = "dishes"
-    paginate_by = 7
+    paginate_by = 10
+
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        query = self.request.GET.get("q")
+        if query:
+            queryset = queryset.filter(
+                Q(name__icontains=query) | Q(dish_type__name__icontains=query)
+            )
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["query"] = self.request.GET.get("q", "")
+        return context
 
 
 class DishDetailView(LoginRequiredMixin, generic.DetailView):

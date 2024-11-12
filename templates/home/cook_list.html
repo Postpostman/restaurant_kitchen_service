@@ -5,6 +5,18 @@
 {% block content %}
 <div class="container mt-5">
     <h1 class="text-center">Cook List</h1>
+    <form method="get" action="{% url 'restaurant_kitchen:cook_list' %}" class="mb-3">
+        <div class="input-group">
+            <input
+                type="text"
+                name="q"
+                class="form-control"
+                placeholder="Search Cooks..."
+                value="{{ query|default:'' }}"
+            >
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
     <ul class="list-group">
         {% for cook in cooks %}
             <li class="list-group-item">
