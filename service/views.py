@@ -159,14 +159,14 @@ class DishDetailView(LoginRequiredMixin, generic.DetailView):
 
 class DishCreateView(LoginRequiredMixin, generic.CreateView):
     model = Dish
-    fields = ["name", "price", "dish_type", "cooks"]
+    fields = ["name", "price", "dish_type", "cooks", "description"]
     template_name = "home/dish_form.html"
     success_url = reverse_lazy("restaurant_kitchen:dish_list")
 
 
 class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Dish
-    fields = ["name", "price", "dish_type", "cooks"]
+    fields = ["name", "price", "dish_type", "cooks", "description"]
     template_name = "home/dish_form.html"
     success_url = reverse_lazy("restaurant_kitchen:dish_list")
 
