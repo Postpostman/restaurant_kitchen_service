@@ -1,36 +1,25 @@
-from django.test import TestCase
+import pytest
 from service.models import DishType, Cook, Dish
-from django.contrib.auth.models import User
 
+@pytest.mark.django_db
+def test_dish_type_str():
+    dish_type = DishType.objects.create(name="Sushi")
+    assert str(dish_type) == "Sushi"
 
-class DishTypeModelTest(TestCase):
-    def setUp(self):
-        self.dish_type = DishType.objects.create(name="Appetizer")
+@pytest.mark.django_db
+def test_cook_str():
+    cook = Cook.objects.create(username="chef1", first_name="Gordon", last_name="Ramsay")
+    assert str(cook) == "Gordon Ramsay (chef1)"
 
-    def test_dish_type_str(self):
-        self.assertEqual(str(self.dish_type), "Appetizer")
-
-
-class CookModelTest(TestCase):
-    def setUp(self):
-        self.user = User.objects.create_user(username="chef", password="password")
-        self.cook = Cook.objects.create(user=self.user, years_of_experience=5)
-
-    def test_cook_str(self):
-        self.assertEqual(str(self.cook), "chef chef (chef)")
-
-
-class DishModelTest(TestCase):
-    def setUp(self):
-        self.dish_type = DishType.objects.create(name="Main Course")
-        self.cook = Cook.objects.create(username="chef", first_name="Chef", last_name="Cook")
-        self.dish = Dish.objects.create(
-            name="Pasta",
-            description="Delicious pasta",
-            price=12.99,
-            dish_type=self.dish_type,
-            cooks=self.cook
-        )
-
-    def test_dish_str(self):
-        self.assertEqual(str(self.dish), "Taco")
+@pytest.mark.django_db
+def test_dish_str():
+    dish_type = DishType.objects.create(name="Pasta")
+    cook = Cook.objects.create(username="chef2")
+    dish = Dish.objects.create(
+        name="Spaghetti",
+        description="Delicious Italian pasta",
+        price=12.50,
+        dish_type=dish_type,
+        cooks=cook
+    )
+    assert str(dish) == "Spaghetti"
