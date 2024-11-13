@@ -7,11 +7,11 @@
     <h1 class="text-center mb-4 text-white ">Dish List</h1>
 
     <div class="container mb-4">
-        <form method="get" action="{% url 'restaurant_kitchen:dish_list' %}" class="mb-3 align-items-center">
+        <form method="get" action="{% url 'restaurant_kitchen:dish_list' %}" class="mb-3 align-items-center d-flex flex-column align-items-center">
             <input
                 type="text"
                 name="q"
-                class="form-control w-20"
+                class="form-control w-40"
                 placeholder="Search Dishes..."
                 value="{{ query|default:'' }}"
             >
@@ -21,7 +21,7 @@
     </div>
 
 
-    <div class="container mb-4">
+    <div class="container mb-4 w-65">
         <ul class="list-group">
             {% for dish in dishes %}
                 <li class="list-group-item">

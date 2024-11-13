@@ -130,7 +130,7 @@ def test_dish_update_view(client, logged_in_user):
         {
             "name": "Updated Roll",
             "description": "Updated description",
-            "price": 9.99,
+            "price": Decimal("9.99"),
             "dish_type": dish_type.id,
             "cooks": cook.id
         }
