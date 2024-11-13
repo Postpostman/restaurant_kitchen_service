@@ -1,0 +1,46 @@
+{% extends "layouts/base_sections.html" %}
+
+{% block title %}Dish List{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4 text-white ">Dish List</h1>
+
+    <div class="container mb-4">
+        <form method="get" action="{% url 'restaurant_kitchen:dish_list' %}" class="mb-3 align-items-center">
+            <input
+                type="text"
+                name="q"
+                class="form-control w-20"
+                placeholder="Search Dishes..."
+                value="{{ query|default:'' }}"
+            >
+          <div style="height: 15px;"></div>
+          <button type="submit" class="btn btn-dark search-btn ">Search</button>
+        </form>
+    </div>
+
+
+    <div class="container mb-4">
+        <ul class="list-group">
+            {% for dish in dishes %}
+                <li class="list-group-item">
+                    <a href="{% url 'restaurant_kitchen:dish_detail' dish.pk %}" class="text-decoration-none">
+                        {{ dish.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="container text-center mt-3">
+        <a href="{% url 'restaurant_kitchen:dish_create' %}" class="btn btn-primary">Add new Dish</a>
+    </div>
+</div>
+{% endblock content %}
+
+{% block javascripts %}
+    {{ block.super }}
+{% endblock javascripts %}
+
+

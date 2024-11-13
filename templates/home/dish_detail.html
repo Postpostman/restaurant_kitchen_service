@@ -1,0 +1,28 @@
+{% extends "layouts/base_sections.html" %}
+
+{% block title %}Dish: {{ dish.name }}{% endblock title %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1 class="text-center text-white">{{ dish.name }}</h1>
+
+    <div class="card mt-4">
+      <div class="card-body">
+        <p class="card-text"><strong>Description:</strong> {{ dish.description }}</p>
+        <p class="card-text"><strong>Price:</strong> ${{ dish.price }}</p>
+        <p class="card-text"><strong>Dish Type:</strong> {{ dish.dish_type }}</p>
+        <p class="card-text"><strong>Cook:</strong> {{ dish.cooks }}</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="{% url 'restaurant_kitchen:dish_update' dish.pk %}" class="btn btn-primary me-2">Edit</a>
+      <a href="{% url 'restaurant_kitchen:dish_delete' dish.pk %}" class="btn btn-dark">Delete</a>
+      <a href="{% url 'restaurant_kitchen:dish_list' %}" class="btn btn-secondary ms-2">Back to Dish List</a>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ block.super }}
+{% endblock javascripts %}
