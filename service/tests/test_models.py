@@ -23,3 +23,4 @@ def test_dish_str():
         cooks=cook
     )
     assert str(dish) == "Spaghetti"
+

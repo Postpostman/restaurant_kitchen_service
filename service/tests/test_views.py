@@ -1,10 +1,14 @@
 import pytest
 from django.urls import reverse
 from service.models import DishType, Cook, Dish
+from decimal import Decimal
 
 
 @pytest.mark.django_db
-def test_index_view(client):
+def test_index_view(client, django_user_model):
+    user = django_user_model.objects.create_user(username="testuser", password="password")
+    client.login(username="testuser", password="password")
+
     response = client.get(reverse("restaurant_kitchen:index"))
     assert response.status_code == 200
     assert "num_cooks" in response.context
@@ -135,7 +139,7 @@ def test_dish_update_view(client, logged_in_user):
     dish.refresh_from_db()
     assert dish.name == "Updated Roll"
     assert dish.description == "Updated description"
-    assert dish.price == 9.99
+    assert dish.price == Decimal("9.99")
 
 
 @pytest.mark.django_db

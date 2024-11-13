@@ -7951,6 +7951,11 @@ fieldset:disabled .btn {
   content: "";
 }
 
+.text-pink-purple {
+    color: #d63384;
+}
+
+
 .text-bg-primary {
   color: #fff !important;
   background-color: RGBA(203, 12, 159, var(--bs-bg-opacity, 1)) !important;
