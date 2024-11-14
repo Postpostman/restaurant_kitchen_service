@@ -29,31 +29,31 @@ This project is intended for restaurant kitchen management. It allows you to add
 
 
 ### Home Page
-![Home Page](restaurant_kitchen_service/readme-img/home-page.png)
+![Home Page](readme-img/home-page.png)
 
 ### Login Form
-![Login Form](restaurant_kitchen_service/readme-img/login.png)
+![Login Form](readme-img/login.png)
 
 ### Search Form
-![Search Form](restaurant_kitchen_service/readme-img/search-form.png)
+![Search Form](readme-img/search-form.png)
 
 ### Cook Details
-![Cook Details](restaurant_kitchen_service/readme-img/cook-detail.png)
+![Cook Details](readme-img/cook-detail.png)
 
 ### Cooks List
-![Cooks List](restaurant_kitchen_service/readme-img/cook-list.png)
+![Cooks List](readme-img/cook-list.png)
 
 ### Dishes List
-![Dishes List](restaurant_kitchen_service/readme-img/dish-list.png)
+![Dishes List](readme-img/dish-list.png)
 
 ### Dish Types List
-![Dish Types List](restaurant_kitchen_service/readme-img/dish-types-list.png)
+![Dish Types List](readme-img/dish-types-list.png)
 
 ### Edit Form
-![Edit Form](restaurant_kitchen_service/readme-img/edit-form.png)
+![Edit Form](readme-img/edit-form.png)
 
 ### Delete Confirmation Form
-![Delete Confirmation Form](restaurant_kitchen_service/readme-img/delete_form.png)
+![Delete Confirmation Form](readme-img/delete_form.png)
 
 ---
 

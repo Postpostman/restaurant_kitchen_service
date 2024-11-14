@@ -3,16 +3,16 @@
 {% block title %}Cook: {{ cook }}{% endblock title %}
 
 {% block content %}
-  <div class="container mt-5">
+  <div class="container mt-5 d-flex flex-column align-items-center">
     <h1 class="text-center text-white ">{{ cook }}</h1>
 
-    <div class="card mt-4">
+    <div class="card mt-4 w-40 d-flex flex-column align-items-center">
       <div class="card-body">
         <p class="card-text"><strong>Years of Experience:</strong> {{ cook.years_of_experience }}</p>
       </div>
     </div>
 
-    <div class="text-center mt-4">
+    <div class="text-center mt-4 ">
       <a href="{% url 'restaurant_kitchen:cook_update' cook.pk %}" class="btn btn-primary me-2">Edit</a>
       <a href="{% url 'restaurant_kitchen:cook_delete' cook.pk %}" class="btn btn-dark">Delete</a>
       <a href="{% url 'restaurant_kitchen:cook_list' %}" class="btn btn-secondary ms-2">Back to Cooks List</a>
