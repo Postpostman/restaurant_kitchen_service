@@ -1,11 +1,12 @@
-from .base import *
+from config.settings.base import *
+
+# DEBUG = os.getenv("DJANGO_DEBUG", "") != "False"
+
+DEBUG = False
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-DEBUG = os.getenv("DJANGO_DEBUG", "") != "False"
-
-ALLOWED_HOSTS = ["127.0.0.1"]
 
 DATABASES = {
     "default": {
