@@ -1,0 +1,38 @@
+{% load i18n %}
+{% load static %}
+
+<div class="pt-3 pb-4" id="count-stats" style="position: fixed; top: 0; left: 0; height: 100%; width: 225px; background-color: #fafffb; z-index: 100;">
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link text-dark fs-4 fw-bold sidebar-link {% if request.path == '/' %}active{% endif %}" href="{% url 'restaurant_kitchen:index' %}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark fs-4 fw-bold sidebar-link {% if request.path == '/cooks/' %}active{% endif %}" href="{% url 'restaurant_kitchen:cook_list' %}">Cooks</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark fs-4 fw-bold sidebar-link {% if request.path == '/dishes/' %}active{% endif %}" href="{% url 'restaurant_kitchen:dish_list' %}">Dishes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark fs-4 fw-bold sidebar-link {% if request.path == '/dish_types/' %}active{% endif %}" href="{% url 'restaurant_kitchen:dish_type_list' %}">Dish Types</a>
+    </li>
+  </ul>
+
+  <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">
+    <form id="logout-form" method="post" action="{% url 'logout' %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-dark">
+        {% trans "Logout" %}
+      </button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .sidebar-link:hover {
+    color: #d63384;
+  }
+  .active {
+    color: #d63384 !important;
+    font-weight: bold !important;
+  }
+</style>
