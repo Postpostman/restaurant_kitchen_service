@@ -10,6 +10,7 @@ from django.db.models import Q
 
 
 
+
 @login_required
 def index(request):
     """Home page view function."""

@@ -1,6 +1,6 @@
 from config.settings.base import *
-
-DEBUG = False
+from dotenv import load_dotenv
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -14,8 +14,7 @@ SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_HSTS_PRELOAD = True
-
-
+load_dotenv()
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 DATABASES = {
     'default': {
