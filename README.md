@@ -2,6 +2,10 @@
 
 This project is intended for restaurant kitchen management. It allows you to add, edit and delete chefs, dishes and dish types.
 
+## Project on Render.com : https://restaurant-kitchen-service-ssxb.onrender.com/
+#Login: testuser
+#Password: testpass
+
 ---
 ## Features
 
@@ -66,6 +70,6 @@ This project is intended for restaurant kitchen management. It allows you to add
 - **python manage.py migrate**
 - **python manage.py runserver**
 - **Open http://127.0.0.1:8000 in your browser.**
-- use this to enter:
-- Login: testuser
+  #use this to enter:
+- - Login: testuser
 - Password: testpass
