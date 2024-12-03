@@ -23,6 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Application definition
 
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
