@@ -66,3 +66,6 @@ This project is intended for restaurant kitchen management. It allows you to add
 - **python manage.py migrate**
 - **python manage.py runserver**
 - **Open http://127.0.0.1:8000 in your browser.**
+- use this to enter:
+- Login: testuser
+- Password: testpass
