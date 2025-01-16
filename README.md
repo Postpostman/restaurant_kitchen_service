@@ -63,7 +63,7 @@ This project is intended for restaurant kitchen management. It allows you to add
 
 ### How to Run the Project
 
-- **git clone https://github.com/r0manvynnytskyi/restaurant_kitchen_service.git**
+- **git clone https://github.com/r0manvynnytskyi/restaurant_kitchen_service.git
 - **cd restaurant_kitchen_service**
 - **pip install -r requirements.txt**
 - **python manage.py makemigrations**
